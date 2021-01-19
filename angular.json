@@ -124,5 +124,8 @@
       }
     }
   },
-  "defaultProject": "quick-draw-recogniser"
+  "defaultProject": "quick-draw-recogniser",
+  "cli": {
+    "analytics": "da33e268-0db2-46ba-bafe-91cc99b341af"
+  }
 }
