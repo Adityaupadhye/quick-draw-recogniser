@@ -7,6 +7,7 @@ import { HomeComponent } from './home/home.component';
 import { PlayComponent } from './play/play.component';
 import { CreateComponent } from './create/create.component';
 import { BtnComponent } from './btn/btn.component';
+import { MyCanvasComponent } from './my-canvas/my-canvas.component';
 
 @NgModule({
   declarations: [
@@ -14,7 +15,8 @@ import { BtnComponent } from './btn/btn.component';
     HomeComponent,
     PlayComponent,
     CreateComponent,
-    BtnComponent
+    BtnComponent,
+    MyCanvasComponent
   ],
   imports: [
     BrowserModule,

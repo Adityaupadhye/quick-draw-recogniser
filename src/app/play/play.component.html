@@ -1,1 +1,33 @@
-<p>play works!</p>
+<body class="bg-custom">
+    <ul class="nav">
+        <li class="nav-item">
+          <a style="color: white" class="nav-link active font-weight-bold mx-4 mt-3 p-1" href="home.html"><i class="fas fa-arrow-left"></i> Back</a>
+        </li>
+    </ul>
+    <div class="container-fluid">
+        <div class="row my-2">
+            <div class="col-md-3">
+                <p style="margin-top: 20px; color: white;">Draw any object in the box and computer would guess it correctly</p>
+            </div>
+            <div class="col-md-6">
+                <p class="draw-here mb-2">Draw Here</p>
+                <!-- <div style="width: 95%; height: 300px;" id="canvas-div">
+                    <canvas class="draw" #mycanvas></canvas>
+                </div>      -->
+                <app-my-canvas></app-my-canvas>
+            </div>
+            <div class="col-md-3">
+                <div class="row">
+                    <div class="col">
+                        <button type="button" class="p-2 btn-confirm" type="submit">Confirm Selection</button>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col">
+                        <button type="button" class="p-2 btn-cancel" type="submit" id="clear">Clear Canvas</button> 
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</body>

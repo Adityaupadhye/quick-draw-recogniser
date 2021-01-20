@@ -1,0 +1,35 @@
+.btn-confirm{
+    margin-top: 4cm;
+    padding: 5px;
+    border-radius: 8px;
+    background-color: rgb(22, 197, 22);
+    color: white;
+    width: 100%;
+}
+
+.btn-confirm:hover{
+    background-color: antiquewhite;
+    color: green;
+}
+
+.btn-cancel{
+    margin-top: 1cm;
+    margin-bottom: 4cm;
+    background-color: rgb(214, 30, 30);
+    color: antiquewhite;
+    width: 100%;
+    padding: 5px;
+    border-radius: 8px;
+}
+
+.btn-cancel:hover{
+    background-color: antiquewhite;
+    color: red;
+}
+
+.draw-here{
+    text-align: center;
+    color: antiquewhite;
+    font-size: x-large;
+    font-family: 'Cabin', sans-serif;
+}
