@@ -1,0 +1,21 @@
+.draw{
+    border: 8px solid burlywood;
+    background-color: white;
+    padding: 2px;
+}
+
+.draw-here{
+    text-align: center;
+    color: antiquewhite;
+    font-size: x-large;
+    font-family: 'Cabin', sans-serif;
+}
+
+.lbls{
+    width: 100%;
+}
+ 
+/* .canvasdiv{
+    style=width: 95%;
+    height: 300px;
+} */
