@@ -9,12 +9,12 @@ export class MyCanvasComponent implements OnInit, AfterViewInit {
 
   constructor() { }
 
-  // @ViewChild("myCanvas") public canvas!: ElementRef;
-  // @ViewChild("canvasDiv") public div!: ElementRef;
+   @ViewChild("myCanvas") public canvas: ElementRef;
+   @ViewChild("canvasDiv") public divc: ElementRef;
 
   // myCanvas!:HTMLCanvasElement;
   // canvasDiv!:HTMLElement;
-  // ctx!: CanvasRenderingContext2D;
+   ctx!: CanvasRenderingContext2D;
 
   // coord = {x:0 , y:0};  
   // paint = false;
@@ -26,7 +26,12 @@ export class MyCanvasComponent implements OnInit, AfterViewInit {
   }
 
   ngAfterViewInit(){
-    console.log(this.div); 
+    console.log("div=",this.div);
+     const c = this.canvas.nativeElement;
+     this.ctx = c.getContext('2d');
+
+     console.log("context=",this.ctx);
+     
   }
 
   // ngAfterViewInit(){
