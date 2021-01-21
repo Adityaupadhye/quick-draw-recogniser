@@ -28,7 +28,7 @@
                 <div [style.width] = "'95%'" [style.height] = "'300px'" id="canvasdiv">
                     <canvas class="draw" id = 'canvas' ></canvas>
                 </div> -->
-                <app-my-canvas></app-my-canvas>
+                <app-my-canvas (send)="view($event)" (sendw)="getW($event)" (sendh)="getH($event)"></app-my-canvas>
             </div>
             <div class="col-md-3">
                 <div class="row">
@@ -44,7 +44,7 @@
                 </div>
                 <div class="row">
                     <div class="col">
-                        <button type="button" class="btn btn-danger lbls p-2" type="submit" id="clear">Clear Canvas</button> 
+                        <button type="button" class="btn btn-danger lbls p-2" type="submit" #clearbtn  (click)="cls()">Clear Canvas</button> 
                     </div>
                 </div>
             </div>
