@@ -9,7 +9,7 @@
             <div class="col-md-3">
                 <p style="margin-top: 20px; color: white;">Draw any object in the box and computer would guess it correctly</p>
             </div>
-            <div class="col-md-6">
+            <div class="col-md-6 p-2">
                 <p class="draw-here mb-2">Draw Here</p>
                 <!-- <div style="width: 95%; height: 300px;" id="canvas-div">
                     <canvas class="draw" #mycanvas></canvas>
@@ -24,7 +24,7 @@
                 </div>
                 <div class="row">
                     <div class="col">
-                        <button type="button" class="p-2 btn-cancel" type="submit" id="clear">Clear Canvas</button> 
+                        <button type="button" class="p-2 btn-cancel" type="submit" #clear (click)="clear()">Clear Canvas</button> 
                     </div>
                 </div>
             </div>

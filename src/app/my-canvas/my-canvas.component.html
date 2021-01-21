@@ -1,3 +1,8 @@
-<div #canvasDiv style="width: 95%; height: 400px;" id="canvas-div">
-    <canvas #myCanvas class="draw"></canvas>
+<div class="row">
+    <div class="col" #canvasDiv style=" height: 400px;">
+        <canvas #myCanvas class="draw" id="mycanvas"
+         (mousedown)="startPainting($event)"
+         (mouseup)="stopPainting()"
+         (mousemove)="sketch($event)"></canvas>
+    </div>
 </div>
