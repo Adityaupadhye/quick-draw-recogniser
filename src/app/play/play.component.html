@@ -14,7 +14,7 @@
                 <!-- <div style="width: 95%; height: 300px;" id="canvas-div">
                     <canvas class="draw" #mycanvas></canvas>
                 </div>      -->
-                <app-my-canvas></app-my-canvas>
+                <app-my-canvas (send)="view($event)" (sendw)="getW($event)" (sendw)="getH($event)"></app-my-canvas>
             </div>
             <div class="col-md-3">
                 <div class="row">
@@ -24,7 +24,7 @@
                 </div>
                 <div class="row">
                     <div class="col">
-                        <button type="button" class="p-2 btn-cancel" type="submit" #clear (click)="clear()">Clear Canvas</button> 
+                        <button type="button" class="p-2 btn-cancel" type="submit" #clear (click)="cls()">Clear Canvas</button> 
                     </div>
                 </div>
             </div>

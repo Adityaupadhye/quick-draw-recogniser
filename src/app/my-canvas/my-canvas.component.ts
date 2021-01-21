@@ -1,5 +1,4 @@
-import { AfterViewInit, Component, ElementRef, OnInit, ViewChild } from '@angular/core';
-import { Context } from 'vm';
+import { AfterViewInit, Component, ElementRef, OnInit, Output, ViewChild, EventEmitter } from '@angular/core';
 
 @Component({
   selector: 'app-my-canvas',
@@ -52,7 +51,7 @@ export class MyCanvasComponent implements OnInit, AfterViewInit {
 
   getPosition(event:MouseEvent){ 
     var rect= this.canvasE?.nativeElement.getBoundingClientRect();
-    console.log(rect);
+    //console.log(rect);
     
     //rect.x, rect.y gives position of canvas wrt browser size
     this.coord.x = event.clientX-rect.x; 
@@ -63,6 +62,8 @@ export class MyCanvasComponent implements OnInit, AfterViewInit {
     this.paint = true; 
     this.getPosition(event);
     console.log("start="+ this.coord.x, this.coord.y);
+    console.log("start= ",this.ctx);
+    
     //console.log(event.x,event.y);
   }
 
@@ -71,6 +72,8 @@ export class MyCanvasComponent implements OnInit, AfterViewInit {
     console.log("stop");
     console.log("end= "+ this.coord.x, this.coord.y);
     this.ctx?.beginPath(); 
+
+    this.sendData();
   }
 
   sketch(event: MouseEvent){ 
@@ -94,7 +97,20 @@ export class MyCanvasComponent implements OnInit, AfterViewInit {
     this.ctx?.stroke(); 
   }
 
+  @Output() send = new EventEmitter<CanvasRenderingContext2D>();
+  @Output() sendw = new EventEmitter<number>();
+  @Output() sendh = new EventEmitter<number>();
+
+
+  sendData(){
+    this.send.emit(this.ctx);
+    this.sendw.emit(this.canvasE?.nativeElement.width);
+    this.sendh.emit(this.canvasE?.nativeElement.height);
+    //this.clear();
+  }
+
   public clear(){
+    console.log("clear called");
     this.ctx?.clearRect(0,0,this.canvasE?.nativeElement.width, this.canvasE?.nativeElement.height)
   }
 
