@@ -1,3 +1,9 @@
 .lbls {
     width: 100%;
 }
+
+.lbls:focus{
+    color: black;
+    background-color: rgb(255, 208, 0);
+    font-weight: bold;
+}
