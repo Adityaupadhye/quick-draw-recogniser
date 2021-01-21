@@ -9,6 +9,8 @@ import { CreateComponent } from './create/create.component';
 import { BtnComponent } from './btn/btn.component';
 import { MyCanvasComponent } from './my-canvas/my-canvas.component';
 
+import { HttpClientModule } from '@angular/common/http';
+
 @NgModule({
   declarations: [
     AppComponent,
@@ -20,7 +22,8 @@ import { MyCanvasComponent } from './my-canvas/my-canvas.component';
   ],
   imports: [
     BrowserModule,
-    AppRoutingModule
+    AppRoutingModule,
+    HttpClientModule
   ],
   providers: [],
   bootstrap: [AppComponent]

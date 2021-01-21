@@ -40,6 +40,8 @@ export class CreateComponent implements OnInit, AfterViewInit {
     this.height=ht;
   }
 
+  
+
   cls(){
     console.log("cls clicked");
     

@@ -9,7 +9,7 @@ export class BtnComponent implements OnInit {
 
   names =["Sun", "Flower", "Moon", "Ball", "Laptop", "Pencil"];
   constructor() { }
-
+  
   ngOnInit(): void {
   }
 

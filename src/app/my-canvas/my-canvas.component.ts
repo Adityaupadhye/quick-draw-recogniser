@@ -1,3 +1,4 @@
+import { HttpClient } from '@angular/common/http';
 import { AfterViewInit, Component, ElementRef, OnInit, Output, ViewChild, EventEmitter } from '@angular/core';
 
 @Component({
@@ -7,7 +8,7 @@ import { AfterViewInit, Component, ElementRef, OnInit, Output, ViewChild, EventE
 })
 export class MyCanvasComponent implements OnInit, AfterViewInit {
 
-  constructor() { }
+  constructor( private http: HttpClient ) { }
 
    @ViewChild("myCanvas") public canvasE?: ElementRef;
    @ViewChild("canvasDiv") public div?: ElementRef;
@@ -107,6 +108,12 @@ export class MyCanvasComponent implements OnInit, AfterViewInit {
     this.sendw.emit(this.canvasE?.nativeElement.width);
     this.sendh.emit(this.canvasE?.nativeElement.height);
     //this.clear();
+  }
+
+  public save(){
+    var canvas = this.canvasE?.nativeElement;
+    var image = canvas.toDataURL("image/png");
+    this.http.post("https://quickdraw.autonise.com/api/test",{image}); 
   }
 
   public clear(){
