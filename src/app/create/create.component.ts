@@ -16,7 +16,7 @@ export class CreateComponent implements OnInit, AfterViewInit {
   @ViewChild('clear')public clearbtn?:ElementRef;
   height:number=0
   width:number=0
-  class_name = ""
+  class_name: string = ""
   image = ""
 
   context?:CanvasRenderingContext2D
@@ -66,8 +66,9 @@ export class CreateComponent implements OnInit, AfterViewInit {
   }
 
   saveImage(){
-    if(this.class_name == null){
+    if(this.class_name.length == 0){
       console.log("Not Updated!");
+      alert("No class selected\nPlease select an image type");
       return;
     }
     var date = Date.now();
