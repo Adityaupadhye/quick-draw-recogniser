@@ -71,7 +71,7 @@ export class CreateComponent implements OnInit, AfterViewInit {
       return;
     }
     var date = Date.now();
-    var filename = this.class_name +' ' + date + '.png';
+    var filename = this.class_name +'_' + date + '.png';
     this.http.post(
       environment.SERVER_URL + '/upload_canvas',
       {filename, image: this.image, class_name: this.class_name},
