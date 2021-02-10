@@ -28,7 +28,7 @@
                 <div [style.width] = "'95%'" [style.height] = "'300px'" id="canvasdiv">
                     <canvas class="draw" id = 'canvas' ></canvas>
                 </div> -->
-                <app-my-canvas (send)="view($event)" (sendw)="getW($event)" (sendh)="getH($event)" (sendImg)="getImg($event)"></app-my-canvas>
+                <app-my-canvas (send)="view($event)" (sendw)="getW($event)" (sendh)="getH($event)" (sendImg)="getImg($event)" ></app-my-canvas>
             </div>
             <div class="col-md-3">
                 <div class="row">
@@ -36,10 +36,10 @@
                         <div class="p-2 mt-4 mb-2 bg-light text-dark text-center rounded font-weight-bold">Choose from the labels</div>
                     </div>
                 </div>
-                <app-btn></app-btn>
+                <app-btn (classname)="getClass($event)"></app-btn>
                 <div class="row">
                     <div class="col">
-                        <button type="button" class="btn btn-success lbls my-3 p-2" type="submit" (click)="save()">Confirm Selection</button>
+                        <button type="button" class="btn btn-success lbls my-3 p-2" type="submit" (click) = "saveImage()" >Confirm Selection</button>
                     </div>
                 </div>
                 <div class="row">

@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, Output, EventEmitter } from '@angular/core';
 
 @Component({
   selector: 'app-btn',
@@ -7,11 +7,21 @@ import { Component, OnInit } from '@angular/core';
 })
 export class BtnComponent implements OnInit {
 
-  names =["Sun", "Flower", "Moon", "Ball", "Laptop", "Pencil"];
+  
   classes=['Sun', 'Flower', 'Umbrella', 'Pencil', 'Spoon', 'Tree', 'Spectacles', 'House', 'Bird', 'Hand'];
   constructor() { }
   
   ngOnInit(): void {
+  } 
+
+  @Output() classname = new EventEmitter<string>();
+
+  sendClassname(name:string){
+    var class1 = name;
+    this.classname.emit(class1);
+    
   }
+
+  
 
 }

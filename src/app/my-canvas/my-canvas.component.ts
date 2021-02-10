@@ -1,4 +1,4 @@
-import { HttpClient } from '@angular/common/http';
+
 import { AfterViewInit, Component, ElementRef, OnInit, Output, ViewChild, EventEmitter } from '@angular/core';
 
 @Component({
@@ -8,7 +8,7 @@ import { AfterViewInit, Component, ElementRef, OnInit, Output, ViewChild, EventE
 })
 export class MyCanvasComponent implements OnInit, AfterViewInit {
 
-  constructor( private http: HttpClient ) { }
+  constructor(  ) { }
 
    @ViewChild("myCanvas") public canvasE?: ElementRef;
    @ViewChild("canvasDiv") public div?: ElementRef;

@@ -1,5 +1,8 @@
 import { AfterViewInit, ElementRef, ViewChild } from '@angular/core';
 import { Component, OnInit } from '@angular/core';
+import { HttpClient } from '@angular/common/http';
+import { environment } from '../../environments/environment';
+
 
 @Component({
   selector: 'app-create',
@@ -8,11 +11,14 @@ import { Component, OnInit } from '@angular/core';
 })
 export class CreateComponent implements OnInit, AfterViewInit {
 
-  constructor() { }
+  constructor(private http: HttpClient) { }
 
   @ViewChild('clear')public clearbtn?:ElementRef;
   height:number=0
   width:number=0
+  class_name = ""
+  image = ""
+
   context?:CanvasRenderingContext2D
 
   ngOnInit(): void {
@@ -40,6 +46,11 @@ export class CreateComponent implements OnInit, AfterViewInit {
     this.height=ht;
   }
 
+  getClass(Class_name:string){
+    this.class_name = Class_name;
+    console.log(Class_name);
+  }
+
   
 
   cls(){
@@ -49,13 +60,25 @@ export class CreateComponent implements OnInit, AfterViewInit {
   }
 
   getImg(imgUri:string){
+    this.image = imgUri;
     console.log('image in create '+imgUri+' ');
     
   }
 
-  save(){
-    console.log('yes');
-    
+  saveImage(){
+    if(this.class_name == null){
+      console.log("Not Updated!");
+      return;
+    }
+    var date = Date.now();
+    var filename = this.class_name +' ' + date + '.png';
+    this.http.post(
+      environment.SERVER_URL + '/upload_canvas',
+      {filename, image: this.image, class_name: this.class_name},
+      {responseType:'text'}).subscribe((res:any)=>{
+        console.log(res, this.class_name)
+        this.cls();
+      })  
   }
 
 }
