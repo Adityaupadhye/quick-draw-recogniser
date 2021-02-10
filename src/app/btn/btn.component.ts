@@ -8,6 +8,7 @@ import { Component, OnInit } from '@angular/core';
 export class BtnComponent implements OnInit {
 
   names =["Sun", "Flower", "Moon", "Ball", "Laptop", "Pencil"];
+  classes=['Sun', 'Flower', 'Umbrella', 'Pencil', 'Spoon', 'Tree', 'Spectacles', 'House', 'Bird', 'Hand'];
   constructor() { }
   
   ngOnInit(): void {
