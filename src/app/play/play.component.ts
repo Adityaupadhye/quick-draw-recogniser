@@ -46,5 +46,15 @@ export class PlayComponent implements OnInit, AfterViewInit {
     
     this.context?.clearRect(0,0,this.width, this.height);
   }
+
+  getImg(imgUri:string){
+    console.log('save in play');
+    console.log(imgUri);
+  }
+
+  save(){
+    console.log('yes');
+    
+  }
   
 }

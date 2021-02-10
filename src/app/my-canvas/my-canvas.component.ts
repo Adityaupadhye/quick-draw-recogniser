@@ -13,6 +13,9 @@ export class MyCanvasComponent implements OnInit, AfterViewInit {
    @ViewChild("myCanvas") public canvasE?: ElementRef;
    @ViewChild("canvasDiv") public div?: ElementRef;
 
+   w=384;
+   h=384;
+
    ctx?: CanvasRenderingContext2D;
    event?:MouseEvent
 
@@ -45,8 +48,10 @@ export class MyCanvasComponent implements OnInit, AfterViewInit {
   resize(c: HTMLCanvasElement, div : HTMLElement){
     //const c:HTMLCanvasElement = this.canvasE?.nativeElement;
     //console.log("in resize ",c);
-    c.width = this.div?.nativeElement.clientWidth-50;
-    c.height = this.div?.nativeElement.clientHeight-50;
+    // c.width = this.div?.nativeElement.clientWidth-50;
+    // c.height = this.div?.nativeElement.clientHeight-50;
+    c.width=this.w;
+    c.height=this.h;
     console.log("div= "+ this.div?.nativeElement.clientHeight, this.div?.nativeElement.clientWidth); 
   }
 
@@ -75,6 +80,7 @@ export class MyCanvasComponent implements OnInit, AfterViewInit {
     this.ctx?.beginPath(); 
 
     this.sendData();
+    this.save();
   }
 
   sketch(event: MouseEvent){ 
@@ -101,6 +107,7 @@ export class MyCanvasComponent implements OnInit, AfterViewInit {
   @Output() send = new EventEmitter<CanvasRenderingContext2D>();
   @Output() sendw = new EventEmitter<number>();
   @Output() sendh = new EventEmitter<number>();
+  @Output() sendImg = new EventEmitter<string>();
 
 
   sendData(){
@@ -111,9 +118,13 @@ export class MyCanvasComponent implements OnInit, AfterViewInit {
   }
 
   public save(){
+    console.log('save clicked');
+    
     var canvas = this.canvasE?.nativeElement;
     var image = canvas.toDataURL("image/png");
-    this.http.post("https://quickdraw.autonise.com/api/test",{image}); 
+    console.log(image);
+    this.sendImg.emit(image);
+    // this.http.post("https://quickdraw.autonise.com/api/test",{image}); 
   }
 
   public clear(){

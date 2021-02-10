@@ -48,4 +48,14 @@ export class CreateComponent implements OnInit, AfterViewInit {
     this.context?.clearRect(0,0,this.width, this.height);
   }
 
+  getImg(imgUri:string){
+    console.log('image in create '+imgUri+' ');
+    
+  }
+
+  save(){
+    console.log('yes');
+    
+  }
+
 }
