@@ -12,6 +12,7 @@ export class BtnComponent implements OnInit {
   constructor() { }
   
   ngOnInit(): void {
+    this.classes.sort()
   } 
 
   @Output() classname = new EventEmitter<string>();
