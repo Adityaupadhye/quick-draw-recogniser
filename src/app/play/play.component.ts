@@ -54,7 +54,8 @@ export class PlayComponent implements OnInit, AfterViewInit {
 
   save(){
     console.log('yes');
-    
+    var snd = new Audio('../../assets/juntos607.mp3');
+    snd.play(); 
   }
   
 }
