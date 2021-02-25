@@ -1,4 +1,6 @@
+import { HttpClient } from '@angular/common/http';
 import { Component, ElementRef, OnInit, ViewChild, AfterViewInit } from '@angular/core';
+import { environment } from 'src/environments/environment';
 
 @Component({
   selector: 'app-play',
@@ -7,7 +9,7 @@ import { Component, ElementRef, OnInit, ViewChild, AfterViewInit } from '@angula
 })
 export class PlayComponent implements OnInit, AfterViewInit {
 
-  constructor() { }
+  constructor(private http: HttpClient) { }
 
   @ViewChild('clear')public clearbtn?:ElementRef;
   height:number=0
@@ -55,7 +57,14 @@ export class PlayComponent implements OnInit, AfterViewInit {
   save(){
     console.log('yes');
     var snd = new Audio('./assets/juntos607.mp3');
-    snd.play(); 
+    
+    this.http.get('http://3.7.9.38/api/test',{responseType: 'text'})
+      .subscribe((res:any)=>{
+        console.log('result=',res);
+        snd.play(); 
+        alert(res);
+      }) 
+    
   }
   
 }
