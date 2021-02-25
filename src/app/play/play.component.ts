@@ -58,7 +58,7 @@ export class PlayComponent implements OnInit, AfterViewInit {
     console.log('yes');
     var snd = new Audio('./assets/juntos607.mp3');
     
-    this.http.get('http://3.7.9.38/api/test',{responseType: 'text'})
+    this.http.get('https://projects.upadhyeclass.com/api/test',{responseType: 'text'})
       .subscribe((res:any)=>{
         console.log('result=',res);
         snd.play(); 
