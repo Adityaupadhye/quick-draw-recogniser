@@ -8,7 +8,12 @@
     <div class="container-fluid">
         <div class="row my-2">
             <div class="col-md-3">
-                <p style="margin-top: 20px; color: white;">Draw any object in the box and computer would guess it correctly</p>
+                <p style="margin-top: 20px; color: white; font-weight: 600;">
+                    Draw any object from this list in the box and computer would guess it correctly
+                </p>
+                <div class="text-center list" *ngFor="let name of classes">
+                    <p>{{name}}</p>
+                </div>
             </div>
             <div class="col-md-6 p-2">
                 <p class="draw-here mb-2">Draw Here</p>
@@ -16,11 +21,16 @@
                     <canvas class="draw" #mycanvas></canvas>
                 </div>      -->
                 <app-my-canvas (send)="view($event)" (sendw)="getW($event)" (sendw)="getH($event)" (sendImg)="getImg($event)"></app-my-canvas>
+                <div class="row mt-5">
+                    <div class="col-md-12 draw-here">
+                        <h4>{{result}} </h4>
+                    </div>
+                </div>
             </div>
             <div class="col-md-3">
                 <div class="row">
                     <div class="col">
-                        <button type="button" class="p-2 btn-confirm" type="submit" (click)="save()">Confirm Selection</button>
+                        <button type="button" class="p-2 btn-confirm" type="submit" (click)="save()">Guess</button>
                     </div>
                 </div>
                 <div class="row">

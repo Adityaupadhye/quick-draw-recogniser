@@ -15,6 +15,9 @@ export class PlayComponent implements OnInit, AfterViewInit {
   height:number=0
   width:number=0
   context?:CanvasRenderingContext2D
+  result=''
+  imgurl=""
+  classes = ['Bird', 'Flower', 'Hand', 'House', 'Pencil', 'Spectacles', 'Spoon', 'Sun', 'Tree', 'Umbrella']
 
   ngOnInit(): void {
       
@@ -47,10 +50,12 @@ export class PlayComponent implements OnInit, AfterViewInit {
     console.log("cls clicked");
     
     this.context?.clearRect(0,0,this.width, this.height);
+    this.result = ''
   }
 
   getImg(imgUri:string){
     console.log('save in play');
+    this.imgurl=imgUri;
     console.log(imgUri);
   }
 
@@ -58,12 +63,24 @@ export class PlayComponent implements OnInit, AfterViewInit {
     console.log('yes');
     var snd = new Audio('./assets/juntos607.mp3');
     
-    this.http.get('https://projects.upadhyeclass.com/api/test',{responseType: 'text'})
-      .subscribe((res:any)=>{
-        console.log('result=',res);
-        snd.play(); 
-        alert(res);
-      }) 
+    // this.http.get(environment.SERVER_URL+'/api/test' ,{responseType: 'text'})
+    //   .subscribe((res:any)=>{
+    //     console.log('result=',res);
+    //     snd.play(); 
+    //     alert(res);
+    //   }) 
+
+    console.log('image=', this.imgurl);
+    this.http.post(
+      environment.SERVER_URL+'/api/result',
+      {'url': this.imgurl},
+      {responseType: 'text'}
+    ).subscribe((res: any)=>{
+      console.log('result= ',res);
+      this.result ='You have drawn ' + res;
+      snd.play();
+    })
+    
     
   }
   

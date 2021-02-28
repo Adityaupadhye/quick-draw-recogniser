@@ -33,3 +33,15 @@
     font-size: x-large;
     font-family: 'Cabin', sans-serif;
 }
+
+.list{
+    color: white;
+    font-weight: 600;
+    
+}
+
+.list:hover{
+    background-color: antiquewhite;
+    color: black;
+    border-radius: 8px;
+}
