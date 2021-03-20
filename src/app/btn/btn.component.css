@@ -1,5 +1,6 @@
 .lbls {
     width: 100%;
+    font-weight: 550;
 }
 
 .lbls:focus{

@@ -45,3 +45,12 @@
     color: black;
     border-radius: 8px;
 }
+
+.btn-sel{
+    border-radius: 50%;
+    background-color:antiquewhite;
+}
+
+.btnbg{
+    background-color: burlywood;
+}

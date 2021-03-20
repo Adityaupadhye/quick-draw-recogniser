@@ -1,5 +1,6 @@
 
 import { AfterViewInit, Component, ElementRef, OnInit, Output, ViewChild, EventEmitter } from '@angular/core';
+import { CanvasService } from '../canvas.service';
 
 @Component({
   selector: 'app-my-canvas',
@@ -8,7 +9,7 @@ import { AfterViewInit, Component, ElementRef, OnInit, Output, ViewChild, EventE
 })
 export class MyCanvasComponent implements OnInit, AfterViewInit {
 
-  constructor(  ) { }
+  constructor(private canvasservice: CanvasService ) { }
 
    @ViewChild("myCanvas") public canvasE?: ElementRef;
    @ViewChild("canvasDiv") public div?: ElementRef;
@@ -60,8 +61,8 @@ export class MyCanvasComponent implements OnInit, AfterViewInit {
     //console.log(rect);
     
     //rect.x, rect.y gives position of canvas wrt browser size
-    this.coord.x = event.clientX-rect.x; 
-    this.coord.y = event.clientY-rect.y; 
+    this.coord.x = event.clientX-rect.x-10; 
+    this.coord.y = event.clientY-rect.y-10; 
   }
 
   startPainting(event: MouseEvent){ 
@@ -87,9 +88,16 @@ export class MyCanvasComponent implements OnInit, AfterViewInit {
     //if (!paint) return; 
     if(event.buttons != 1) return;
   
-    this.ctx!.lineWidth = 5; 
-    this.ctx!.lineCap = 'round'; 
-    this.ctx!.strokeStyle = 'black'; 
+    this.ctx!.lineWidth = this.canvasservice.linewidth;
+    this.ctx!.lineCap = 'round';
+    var stroke=''
+    if(this.canvasservice.rubberOn){
+      stroke=this.canvasservice.stroke[1];
+    }else{
+      stroke=this.canvasservice.stroke[0];
+    }
+    
+    this.ctx!.strokeStyle = stroke;
         
     // The position of the cursor 
     // gets updated as we move the 

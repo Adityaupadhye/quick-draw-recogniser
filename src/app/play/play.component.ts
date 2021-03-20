@@ -1,6 +1,7 @@
 import { HttpClient } from '@angular/common/http';
 import { Component, ElementRef, OnInit, ViewChild, AfterViewInit } from '@angular/core';
 import { environment } from 'src/environments/environment';
+import { CanvasService } from '../canvas.service';
 
 @Component({
   selector: 'app-play',
@@ -9,7 +10,7 @@ import { environment } from 'src/environments/environment';
 })
 export class PlayComponent implements OnInit, AfterViewInit {
 
-  constructor(private http: HttpClient) { }
+  constructor(private http: HttpClient,public cvs: CanvasService) { }
 
   @ViewChild('clear')public clearbtn?:ElementRef;
   height:number=0
@@ -18,6 +19,10 @@ export class PlayComponent implements OnInit, AfterViewInit {
   result=''
   imgurl=""
   classes = ['Bird', 'Flower', 'Hand', 'House', 'Pencil', 'Spectacles', 'Spoon', 'Sun', 'Tree', 'Umbrella']
+  rubber=this.cvs.rubberOn;
+  draw=this.cvs.draw;
+  btnname=''
+  lineWidth=5
 
   ngOnInit(): void {
       
@@ -57,6 +62,11 @@ export class PlayComponent implements OnInit, AfterViewInit {
     console.log('save in play');
     this.imgurl=imgUri;
     console.log(imgUri);
+  }
+
+  test(){
+    console.log('test clicked');
+    
   }
 
   save(){
